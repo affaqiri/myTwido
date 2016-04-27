@@ -1,30 +1,48 @@
 'use strict';
 
-(function() {
+(function () {
     var app = {
         data: {}
     };
 
-    var bootstrap = function() {
-        $(function() {
+    var bootstrap = function () {
+        $(function () {
             app.mobileApp = new kendo.mobile.Application(document.body, {
-                transition: 'slide',
-                skin: 'nova',
-                initial: 'components/home/view.html'
+                skin: 'flat',
+                initial: 'components/dashBoardView/view.html'
             });
         });
     };
-
+    
     if (window.cordova) {
-        document.addEventListener('deviceready', function() {
+        document.addEventListener('deviceready', function () {
             if (navigator && navigator.splashscreen) {
                 navigator.splashscreen.hide();
             }
+
+            var element = document.getElementById('appDrawer');
+            if (typeof (element) != 'undefined' && element !== null) {
+                if (window.navigator.msPointerEnabled) {
+                    $('#navigation-container').on('MSPointerDown', 'a', function (event) {
+                        app.keepActiveState($(this));
+                    });
+                } else {
+                    $('#navigation-container').on('touchstart', 'a', function (event) {
+                        app.keepActiveState($(this).closest('li'));
+                    });
+                }
+            }
+
             bootstrap();
         }, false);
     } else {
         bootstrap();
     }
+    
+    app.emToPx = function (input) {
+        var emSize = parseFloat($("body").css("font-size"));
+        return (emSize * input);
+    };
 
     app.keepActiveState = function _keepActiveState(item) {
         var currentItem = item;
@@ -34,7 +52,7 @@
 
     window.app = app;
 
-    app.isOnline = function() {
+    app.isOnline = function () {
         if (!navigator || !navigator.connection) {
             return true;
         } else {

@@ -2,47 +2,50 @@
 <html>
 
 <head>
-    <title></title>
+    <title>myTwido Demo</title>
     <meta charset="utf-8">
-    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet">
-
+    <link href="kendo/styles/kendo.dataviz.mobile.min.css" rel="stylesheet" />
+    <!-- Once the final theme is chosen the redundant css reference should removed -->
+    <link href="kendo/styles/kendo.dataviz.flat.min.css" rel="stylesheet" />
+    <link href="kendo/styles/kendo.dataviz.silver.min.css" rel="stylesheet" />
+    <link href="styles/main.css" rel="stylesheet" />
     <link href="styles/overrides.css" rel="stylesheet">
-    <link href="styles/main.css" rel="stylesheet">
-
     <script src="cordova.js"></script>
     <script src="kendo/js/jquery.min.js"></script>
-    <script src="kendo/js/kendo.mobile.min.js"></script>
+    <script src="kendo/js/kendo.dataviz.mobile.min.js"></script>
     <script src="app.js"></script>
 </head>
 
 <body id="kendoUiMobileApp">
-    <script src="components/home/index.js"></script>
+    <script src="components/accountView/index.js"></script>
+    <script src="components/dashBoardView/index.js"></script>
     <div data-role="layout" data-id="main">
         <header data-role="header">
             <div data-role="navbar">
                 <span data-role="view-title"></span>
+                <a data-role="button" href="#appDrawer" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>
             </div>
         </header>
-        <footer data-role="footer">
-            <div data-role="tabstrip" id="navigation-container">
-                <a href="components/home/view.html" data-icon="home">Home View</a>
-            </div>
-        </footer>
     </div>
-
     <div data-role="layout" data-id="main-nonav">
         <header data-role="header">
             <div data-role="navbar">
                 <span data-role="view-title"></span>
             </div>
         </header>
-        <footer data-role="footer">
-        </footer>
     </div>
-    <!-- START_CUSTOM_CODE_kendoUiMobileApp -->
-    <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
-
-    <!-- END_CUSTOM_CODE_kendoUiMobileApp -->
+    <div id="appDrawer" data-role="drawer" data-title="Navigation">
+        <header data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title"></span>
+            </div>
+        </header>
+        <ul id="navigation-container" data-role="listview">
+            <li><a href="components/accountView/view.html" data-icon="home">Mon Compte</a></li>
+            <li><a href="components/accountView/view.html" data-icon="home">Mon Compte</a></li>
+            <li><a href="components/dashBoardView/view.html" data-icon="home">Dashboard</a></li>
+        </ul>
+    </div>
 </body>
 
 </html>
