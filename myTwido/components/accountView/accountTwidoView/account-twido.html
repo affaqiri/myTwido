@@ -1,0 +1,43 @@
+<div data-role="view" data-title="Mon Compte" data-layout="account-view-layout">
+    <div id="twidoViewModel" class="form-view">
+        <form>
+            <ul class="form-content" data-role="listview" data-style="inset">
+                <li class="form-content-item">
+                    <label>
+                        <span>Type de contrat</span>
+                        <select data-bind="value: twidoViewModel.fields.contractType" data-role="dropdownlist">
+                            <option value="First Option">First Option</option>
+                            <option value="Second Option">Second Option</option>
+                            <option value="Third Option">Third Option</option>
+                        </select>
+                    </label>
+                </li>
+                <li class="form-content-item">
+                    <label>
+                        <span>Vérouillage poussoir</span>
+                        <input data-bind="value: twidoViewModel.fields.buttonVerouillage" data-role="switch">
+                    </label>
+                </li>
+                <li class="group-separator">
+                    <h4 class="group-separator-header">Coûts</h4>
+                </li>
+                <li class="form-content-item">
+                    <label class="km-label-above">
+                        <span>Electricité</span>
+                        <input data-bind="value: twidoViewModel.fields.electricityCost" placeholder="€/KwH" type="text">
+                    </label>
+                </li>
+                <li class="form-content-item">
+                    <label class="km-label-above">
+                        <span>Eau</span>
+                        <input data-bind="value: twidoViewModel.fields.electricityCost" placeholder="€/m3" type="text">
+                    </label>
+                </li>
+            </ul>
+            <div class="button-group">
+                <a data-role="button" data-bind="events: { click: twidoViewModel.cancel }">Cancel</a>
+                <a class="primary" data-role="button" data-bind="events: { click: twidoViewModel.submit }">Confirm</a>
+            </div>
+        </form>
+    </div>
+</div>

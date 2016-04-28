@@ -1,0 +1,66 @@
+<div data-role="view" data-title="Mon Compte" data-layout="account-view-layout">
+    <div id="foyerViewModel" class="form-view">
+        <form>
+            <ul class="form-content" data-role="listview" data-style="inset">
+                <li class="group-separator">
+                    <h4 class="group-separator-header">Type d'habitation</h4>
+                </li>
+                <li class="form-content-item">
+                    <label>
+                        <span>Principale</span>
+                        <input data-bind="value: foyerViewModel.fields.typeHabitat" type="radio" name="group1">
+                    </label>
+                </li>
+                <li class="form-content-item">
+                    <label>
+                        <span>Secondaire</span>
+                        <input data-bind="value: foyerViewModel.fields.radio1" type="radio" name="group1">
+                    </label>
+                </li>
+                <li class="group-separator">
+                    <h4 class="group-separator-header">Vous êtes</h4>
+                </li>
+                <li class="form-content-item">
+                    <label>
+                        <span>Locataire</span>
+                        <input data-bind="value: foyerViewModel.fields.typeHabitat" type="radio" name="group1">
+                    </label>
+                </li>
+                <li class="form-content-item">
+                    <label>
+                        <span>Propriétaire</span>
+                        <input data-bind="value: foyerViewModel.fields.radio1" type="radio" name="group1">
+                    </label>
+                </li>
+                <li class="group-separator">
+                    <h4 class="group-separator-header">Type d'habitat</h4>
+                </li>
+                <li class="form-content-item">
+                    <label>
+                        <span>Appartement</span>
+                        <input data-bind="value: foyerViewModel.fields.typeHabitat" type="radio" name="group1">
+                    </label>
+                </li>
+                <li class="form-content-item">
+                    <label>
+                        <span>Maison</span>
+                        <input data-bind="value: foyerViewModel.fields.radio1" type="radio" name="group1">
+                    </label>
+                </li>
+                <li class="group-separator">
+                    <h4 class="group-separator-header">Type de chauffage</h4>
+                </li>
+                <li>
+                    <ul data-role="buttongroup" data-index="0">
+                        <li>Electrique</li>
+                        <li>Gaz</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="button-group">
+                <a data-role="button" data-bind="events: { click: foyerViewModel.cancel }">Cancel</a>
+                <a class="primary" data-role="button" data-bind="events: { click: foyerViewModel.submit }">Confirm</a>
+            </div>
+        </form>
+    </div>
+</div>

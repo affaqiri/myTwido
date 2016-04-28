@@ -4,16 +4,18 @@
     var app = {
         data: {}
     };
-
+    
+    var application, mobileSkin = "", defaultChartTheme = "silver";
+    
     var bootstrap = function () {
         $(function () {
-            app.mobileApp = new kendo.mobile.Application(document.body, {
+            application = new kendo.mobile.Application(document.body, {
                 skin: 'flat',
                 initial: 'components/dashBoardView/view.html'
             });
         });
     };
-    
+
     if (window.cordova) {
         document.addEventListener('deviceready', function () {
             if (navigator && navigator.splashscreen) {
@@ -39,6 +41,24 @@
         bootstrap();
     }
     
+    app.chartsTheme = defaultChartTheme;
+
+    //Skin change function is for the demo. On real project only one theme should be chosen.
+    app.changeSkin = function (e) {
+        if (e.sender.element.text() === "Flat") {
+            e.sender.element.text("Native");
+            window.app.chartsTheme = "flat";
+            mobileSkin = "flat";
+        } else {
+            e.sender.element.text("Flat");
+            window.app.chartsTheme = defaultChartTheme;
+            mobileSkin = "";
+        }
+
+        application.skin(mobileSkin);
+        application.view().show();
+    };
+    
     app.emToPx = function (input) {
         var emSize = parseFloat($("body").css("font-size"));
         return (emSize * input);
@@ -60,8 +80,3 @@
         }
     };
 }());
-
-// START_CUSTOM_CODE_kendoUiMobileApp
-// Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes
-
-// END_CUSTOM_CODE_kendoUiMobileApp

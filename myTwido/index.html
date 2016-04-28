@@ -10,6 +10,7 @@
     <link href="kendo/styles/kendo.dataviz.silver.min.css" rel="stylesheet" />
     <link href="styles/main.css" rel="stylesheet" />
     <link href="styles/overrides.css" rel="stylesheet">
+   	<link href="styles/custom.css" rel="stylesheet">
     <script src="cordova.js"></script>
     <script src="kendo/js/jquery.min.js"></script>
     <script src="kendo/js/kendo.dataviz.mobile.min.js"></script>
@@ -17,22 +18,43 @@
 </head>
 
 <body id="kendoUiMobileApp">
-    <script src="components/accountView/index.js"></script>
+    <script src="components/accountView/account.js"></script>
     <script src="components/dashBoardView/index.js"></script>
-    <div data-role="layout" data-id="main">
+    <script src="components/accountView/accountInfoView/account-info.js"></script>
+    <script src="components/statsView/stats.js"></script>
+    <div data-id="main" data-role="layout">
         <header data-role="header">
             <div data-role="navbar">
                 <span data-role="view-title"></span>
                 <a data-role="button" href="#appDrawer" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>
+                <a data-role="button" data-align="right" data-click="app.changeSkin">Flat</a>
             </div>
         </header>
+        <!-- Views will be inserted here -->
     </div>
-    <div data-role="layout" data-id="main-nonav">
+    <div data-id="main-nonav" data-role="layout">
         <header data-role="header">
             <div data-role="navbar">
                 <span data-role="view-title"></span>
             </div>
         </header>
+        <!-- Views will be inserted here -->
+    </div>
+    <div data-id="account-view-layout" data-role="layout">
+        <header data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title"></span>
+                <a data-role="button" href="#appDrawer" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>
+                <a data-role="button" data-align="right" data-click="app.changeSkin">Flat</a>
+            </div>
+        </header>
+        <footer data-role="footer">
+            <div data-role="tabstrip" id="navigation-container">
+                <a href="components/accountView/accountInfoView/account-info.html" data-icon="contacts">Mon Compte</a>
+                <a href="components/accountView/accountHomeView/account-home.html" data-icon="home">Mon Foyer</a>
+                <a href="components/accountView/accountTwidoView/account-twido.html" data-icon="organize">Mon Twido</a>
+            </div>
+        </footer>
     </div>
     <div id="appDrawer" data-role="drawer" data-title="Navigation">
         <header data-role="header">
@@ -41,9 +63,10 @@
             </div>
         </header>
         <ul id="navigation-container" data-role="listview">
-            <li><a href="components/accountView/view.html" data-icon="home">Mon Compte</a></li>
-            <li><a href="components/accountView/view.html" data-icon="home">Mon Compte</a></li>
+            <li><a href="components/accountView/account.html" data-icon="home">Home</a></li>
+            <li><a href="components/accountView/accountInfoView/account-info.html" data-icon="home">Mon Compte</a></li>
             <li><a href="components/dashBoardView/view.html" data-icon="home">Dashboard</a></li>
+            <li><a href="components/statsView/stats.html" data-icon="home">Tableau de bord</a></li>
         </ul>
     </div>
 </body>
