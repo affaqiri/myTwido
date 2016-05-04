@@ -9,9 +9,9 @@
     
     var bootstrap = function () {
         $(function () {
-            application = new kendo.mobile.Application(document.body, {
-                skin: 'flat',
-                initial: 'components/dashBoardView/view.html'
+            app.application = new kendo.mobile.Application(document.body, {
+
+                initial: 'components/authenticationView/authentication.html'
             });
         });
     };
@@ -48,15 +48,15 @@
         if (e.sender.element.text() === "Flat") {
             e.sender.element.text("Native");
             window.app.chartsTheme = "flat";
-            mobileSkin = "flat";
+            app.mobileSkin = "flat";
         } else {
             e.sender.element.text("Flat");
             window.app.chartsTheme = defaultChartTheme;
-            mobileSkin = "";
+            app.mobileSkin = "";
         }
 
-        application.skin(mobileSkin);
-        application.view().show();
+        app.application.skin(app.mobileSkin);
+        app.application.view().show();
     };
     
     app.emToPx = function (input) {

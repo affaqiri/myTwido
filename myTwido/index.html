@@ -4,20 +4,28 @@
 <head>
     <title>myTwido Demo</title>
     <meta charset="utf-8">
-    <link href="kendo/styles/kendo.dataviz.mobile.min.css" rel="stylesheet" />
+    <!-- Stylesheets -->
+    <link href="kendo/styles/kendo.dataviz.mobile.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.dataviz.default.min.css" rel="stylesheet">
     <!-- Once the final theme is chosen the redundant css reference should removed -->
-    <link href="kendo/styles/kendo.dataviz.flat.min.css" rel="stylesheet" />
-    <link href="kendo/styles/kendo.dataviz.silver.min.css" rel="stylesheet" />
-    <link href="styles/main.css" rel="stylesheet" />
+    <link href="kendo/styles/kendo.dataviz.flat.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.dataviz.silver.min.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
     <link href="styles/overrides.css" rel="stylesheet">
-   	<link href="styles/custom.css" rel="stylesheet">
+    <link href="styles/custom.css" rel="stylesheet">
+    <!-- Scripts -->
     <script src="cordova.js"></script>
     <script src="kendo/js/jquery.min.js"></script>
     <script src="kendo/js/kendo.dataviz.mobile.min.js"></script>
+    <script src="kendo/js/kendo.all.min.js"></script>
+    <script src="bower_components/everlive/min/everlive.all.min.js"></script>
+    <!-- Application Specific Scripts -->
     <script src="app.js"></script>
+    <script src="dataProviders/myTwido.js"></script>
 </head>
 
 <body id="kendoUiMobileApp">
+    <script src="components/authenticationView/authentication.js"></script>
     <script src="components/accountView/account.js"></script>
     <script src="components/dashBoardView/index.js"></script>
     <script src="components/accountView/accountInfoView/account-info.js"></script>
@@ -33,6 +41,7 @@
         </header>
         <!-- Views will be inserted here -->
     </div>
+    <!-- Used by the authentication view -->
     <div data-id="main-nonav" data-role="layout">
         <header data-role="header">
             <div data-role="navbar">
@@ -68,6 +77,7 @@
             <li><a href="components/accountView/accountInfoView/account-info.html" data-icon="home">Mon Compte</a></li>
             <li><a href="components/dashBoardView/view.html" data-icon="home">Dashboard</a></li>
             <li><a href="components/statsView/stats.html" data-icon="home">Tableau de bord</a></li>
+            <li><a href="components/authenticationView/authentication.html?logout=true" data-position="end" data-icon="action">Sign Out</a></li>
         </ul>
     </div>
 </body>

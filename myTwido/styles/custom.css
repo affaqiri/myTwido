@@ -1,20 +1,59 @@
-html { 
-    font-size: 14px; 
+html {
+    font-size: 14px;
 }
-
 input[type=text] {
     font-family: Arial, Helvetica, sans-serif !important;
 }
-
 form > div.km-listview-wrapper > ul {
-    margin : 0px;
+    margin: 0px;
 }
-
 fieldset label.km-label-above {
-    padding-bottom : 3px !important;
-    padding-top : 3px !important;
+    padding-bottom: 3px !important;
+    padding-top: 3px !important;
+}
+.km-thumbnail {
+    border-radius: 50%;
 }
 
-.km-thumbnail {
-    border-radius : 50%;
+.card-programme {
+    background: #fff;
+    margin: 5px;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+    border: none;
+    border-radius:10px;
+}
+
+.card {
+    background: #fff;
+    margin: 5px;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+    border: none;
+    width:170px;
+    height: 170px;
+    border-radius: 10px;
+}
+.card-content {
+    margin: 0 auto;
+}
+.card-content h1 {
+    color: black;
+    margin: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 40px;
+}
+
+.card-footer {
+    border-top: 1px solid rgba(0,0,0,.12);
+}
+
+#v38-range {
+    width: 100%;
+    line-height: 30px;
+}
+#v38-pie {
+	width : 100px;
+    line-height: 60px;
 }

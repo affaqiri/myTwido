@@ -1,5 +1,7 @@
 <div data-role="view" data-title="Mon Compte" data-layout="account-view-layout">
     <div id="twidoViewModel" class="form-view">
+	    <img src="images/twido.png" class="km-thumbnail" 
+             style="width: 10em; height: 10em; margin: 1em auto; display: block; float: none;"/>
         <form>
             <ul class="form-content" data-role="listview" data-style="inset">
                 <li class="form-content-item">
@@ -33,11 +35,20 @@
                         <input data-bind="value: twidoViewModel.fields.electricityCost" placeholder="€/m3" type="text">
                     </label>
                 </li>
+                <li class="group-separator">
+                    <h4 class="group-separator-header">Coûts</h4>
+                </li>
+                <li class="form-content-item">
+                    <label class="km-label-above">
+                        <span>Conseigne Température</span>
+                        <input id="slider" data-role="slider" 
+                               data-orientation="horizontal"  
+                               data-max="70" data-min="15" 
+                               data-small-step="5"
+                               data-tick-placement="both" class="km-full-width-slider" />
+                    </label>
+                </li>
             </ul>
-            <div class="button-group">
-                <a data-role="button" data-bind="events: { click: twidoViewModel.cancel }">Cancel</a>
-                <a class="primary" data-role="button" data-bind="events: { click: twidoViewModel.submit }">Confirm</a>
-            </div>
         </form>
     </div>
 </div>

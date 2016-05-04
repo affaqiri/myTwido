@@ -1,0 +1,63 @@
+<div data-role="view" data-title="Se Connecter" data-layout="main-nonav" 
+     data-model="app.authenticationView" data-show="app.authenticationView.onShow" 
+     data-after-show="app.authenticationView.afterShow"
+     data-transition="overlay:up">
+    <div class="signin-view">
+        <form>
+            <ul data-role="listview" data-style="inset">
+                <li>
+                    <label class="km-label-above">
+                        <span>Email</span>
+                        <input type="email" data-bind="value: authenticationViewModel.email" placeholder="Votre adresse mail" required autofocus>
+                    </label>
+                </li>
+                <li>
+                    <label class="km-label-above">
+                        <span>Mot de passe</span>
+                        <input type="password" data-bind="value: authenticationViewModel.password" placeholder="Votre mot de passe" required>
+                    </label>
+                </li>
+                <li>
+                    <label>Mémoriser mes informations
+                        <input type="checkbox" data-bind="checked: authenticationViewModel.rememberme">
+                    </label>
+                </li>
+            </ul>
+            <div class="button-group button-group-vertical">
+                <a data-role="button" data-transition="" class="primary" data-bind="events: { click: authenticationViewModel.signin }">Se connecter</a>
+                <a data-role="button" data-bind="events: { click: authenticationViewModel.toggleView }">S'inscrire</a>
+            </div>
+        </form>
+    </div>
+    <div class="signup-view" style="display:none;">
+        <form>
+            <ul data-role="listview" data-style="inset">
+                <li>
+                    <label class="km-label-above">
+                        <span>Email</span>
+                        <input type="email" data-bind="value: authenticationViewModel.email" placeholder="Votre adresse mail" required>
+                    </label>
+                </li>
+                <li>
+                    <label class="km-label-above">
+                        <span>Mot de passe</span>
+                        <input type="password" data-bind="value: authenticationViewModel.password" placeholder="Votre mot de passe">
+                    </label>
+                </li>
+                <li class="km-label-above">
+                    <label>
+                        <span>Pseudonyme</span>
+                        <input type="text" placeholder="Votre pseudonyme" data-bind="value: authenticationViewModel.displayName">
+                    </label>
+                </li>
+            </ul>
+            <div class="button-group button-group-vertical">
+                <a class="primary" data-role="button" data-bind="events: { click: authenticationViewModel.register }">S'inscrire</a>
+                <a data-role="button" data-bind="events: { click: authenticationViewModel.toggleView }">Se connecter</a>
+            </div>
+        </form>
+    </div>
+    <div class="offline" align="center" style="display:none;">
+        You are currently offline. Before using this app in offline mode you must initialize it while you are online
+    </div>
+</div>

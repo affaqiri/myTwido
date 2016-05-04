@@ -1,6 +1,105 @@
-<div data-role="view" data-title="Accueil" data-layout="main" data-model="app.homeVM" 
-     data-show="app.homeVM.onShow" 
-     data-after-show="app.homeVM.afterShow" 
-     data-hide="app.homeVM.hide" data-stretch="true">
-    <div id="v38-gauge"></div>
+<div data-role="view" data-title="Accueil" data-layout="main" data-model="app.homeVM" data-show="app.homeVM.onShow" data-after-show="app.homeVM.afterShow" data-hide="app.homeVM.hide">
+    <div class="card" style="float: left;">
+        <div class="card-content">
+            <div id="v38-donut" style="margin : 0 auto;"></div>
+        </div>
+        <div class="card-footer">
+            <h3 style="margin : 0px; margin-left : 20px; margin-top: 5px;">V38 Disponible</h3>
+        </div>
+    </div>
+    <div class="card" style="float: right;">
+        <div class="card-content">
+            <div id="cap-donut" style="margin : 0 auto;"></div>
+        </div>
+        <div class="card-footer">
+            <h3 style="margin: 0px; margin-top: 5px; margin-left: 50px;">Capacité</h3>
+        </div>
+    </div>
+    <div style="clear:both"></div>
+    <div class="card-programme" style="margin-top: 20px; margin-bottom: 20px;">
+        <div style="padding-top: 10px; padding-bottom: 10px;" data-role="lineargauge" 
+             data-pointer="[
+                           {
+                           		color: 'red', 
+                           		size: 15
+                           }, 
+                           {
+                           		value: 150,
+                			 	color: '#c20000',
+                				shape: 'arrow'
+                           }
+                           ]"
+             data-scale="{
+		                 min:0, 
+                         max: 320, 
+                         majorUnit:40, 
+                         minorUnit: 20, 
+                         vertical: false,
+                         ranges: [
+                {
+                    from: 0,
+                    to: 80,
+                    color: '#3D9970'
+               },
+                {
+                    from: 81,
+                    to: 160,
+                    color: '#39CCCC'
+               },
+                {
+                    from: 161,
+                    to: 240,
+                    color: '#7FDBFF'
+               },
+                {
+                    from: 241,
+                    to: 320,
+                    color: '#0074D9'
+               }
+            ]
+                         
+                         }" 
+             data-bind="value: homeModel.fields.capacity">
+        </div>
+        <!--<div id="v38-gauge"></div>-->
+        <input data-role="slider" style="padding-bottom: 5px; width: 100%; margin:0 auto;" 
+               data-min="0" data-max="320" 
+               data-small-step="5" data-large-step="10" 
+               data-bind="value: homeModel.fields.capacity,
+                          events: {change: homeModel.onSliderChange}">
+    </div>
+    <div class="card-programme">
+        <div style="width: 130px; padding: 10px; float: left;">
+            <div style="text-align:center;">
+  
+                <span>Hors Gel</span>
+                <input data-bind="value: homeModel.fields.horsGel" data-role="switch" data-change="app.homeVM.homeModel.onHorsGel">
+                <br/>
+                <span>Contrat Energie</span>
+                <input data-bind="value: homeModel.fields.contratEnergie" data-role="switch" data-change="app.homeVM.homeModel.onContratEnergie">
+                <span>Programmé</span>
+                <input data-bind="value: homeModel.fields.planificateur" data-role="switch" data-change="app.homeVM.homeModel.onPlanificateur">
+                <span>Permanent</span>
+                <input data-bind="value: homeModel.fields.permanent" data-role="switch" data-change="app.homeVM.homeModel.onPermanent">
+            </div>
+        </div>
+        <div style="width : 200px; padding-left: 10px; float: left;">
+            <div style="margin-top: 50px;" data-bind="visible: homeModel.fields.horsGel">
+                <span>Le Twido est en mode Hors Gel jusqu'à nouvelle ordre</span>
+            </div>
+            <div style="margin-top: 50px;" data-bind="visible: homeModel.fields.contratEnergie">
+                <span>Le Twido est en mode Contrat Energie </span>
+                <br />
+                <select data-role="dropdownlist">
+                    <option value="First Option">Contrat A</option>
+                    <option value="Second Option">Contrat B</option>
+                    <option value="Third Option">Contrat C</option>
+                </select>
+            </div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="card-footer">
+        	<h3 style="margin: 0px; margin-top: 5px; margin-left: 110px;">Mode de Marche</h3>
+        </div>
+    </div>
 </div>

@@ -10,7 +10,16 @@
       "icon": "home"
     }
   ],
-  "dataProviders": [],
+  "dataProviders": [
+    {
+      "type": "kendo-ui-mobile:dataProvider",
+      "name": "myTwido",
+      "title": "myTwido / myTwido",
+      "source": "everlive",
+      "everliveKey": "w60a0hyl56agt5gg",
+      "offlineStorage": true
+    }
+  ],
   "name": "kendoUiMobileApp",
   "navigation": "tabstrip",
   "view": "home",
